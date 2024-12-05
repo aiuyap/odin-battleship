@@ -43,6 +43,10 @@ export function Gameboard() {
 
     destroyer.setCoordinates("4,3");
     destroyer.setCoordinates("4,4");
+
+    cruiser.setCoordinates("6,7");
+    cruiser.setCoordinates("7,7");
+    cruiser.setCoordinates("8,7");
   }
 
   function receiveAttack(atk) {
@@ -56,8 +60,10 @@ export function Gameboard() {
 
     if (hitAShip === 0) {
       missedAtk.push(atk);
+      return false;
     } else {
       hitAtk.push(atk);
+      return true;
     }
   }
 

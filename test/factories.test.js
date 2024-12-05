@@ -3,6 +3,6 @@ import { Gameboard } from "../src/factories";
 const game = Gameboard();
 game.placeShips();
 
-test("Check if all ships is sunk function works", () => {
-  expect(game.checkAllShipIsSunk()).toBe(false);
+test("Check receiveAtk", () => {
+  expect(game.receiveAttack("1,1")).toBe(true);
 });

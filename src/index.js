@@ -1,12 +1,16 @@
 import "./styles.css";
-import { generateCells, showShips } from "./loadField";
+import { generateCells, showShips, loadListeners } from "./loadField";
 import { Player } from "./factories";
 
 (function main() {
-  const userPlayer = Player();
-  userPlayer.gameboard.placeShips();
+  const userPlayer = Player("Aiu", "human");
+  const computerPlayer = Player("computer", "computer");
 
-  generateCells(".player-field");
-  generateCells(".computer-field");
-  showShips(userPlayer.gameboard.getAllShipCoordinates());
+  userPlayer.gameboard.placeShips();
+  computerPlayer.gameboard.placeShips();
+
+  generateCells(".player-field", "human");
+  generateCells(".computer-field", "computer");
+  showShips(userPlayer.gameboard.getAllShipCoordinates(), "human");
+  loadListeners(computerPlayer.gameboard);
 })();
