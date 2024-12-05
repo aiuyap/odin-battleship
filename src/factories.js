@@ -36,6 +36,13 @@ export function Gameboard() {
 
   function placeShips() {
     carrier.setCoordinates("1,1");
+    carrier.setCoordinates("1,2");
+    carrier.setCoordinates("1,3");
+    carrier.setCoordinates("1,4");
+    carrier.setCoordinates("1,5");
+
+    destroyer.setCoordinates("4,3");
+    destroyer.setCoordinates("4,4");
   }
 
   function receiveAttack(atk) {
@@ -54,6 +61,17 @@ export function Gameboard() {
     }
   }
 
+  function getAllShipCoordinates() {
+    const ship1 = carrier.getCoordinates();
+    const ship2 = battleship.getCoordinates();
+    const ship3 = cruiser.getCoordinates();
+    const ship4 = submarine.getCoordinates();
+    const ship5 = destroyer.getCoordinates();
+    const allShip = ship1.concat(ship2, ship3, ship4, ship5);
+
+    return allShip;
+  }
+
   function checkAllShipIsSunk() {
     if (carrier.isSunk() && battleship.isSunk() && cruiser.isSunk() && submarine.isSunk() && destroyer.isSunk) {
       return true;
@@ -61,7 +79,7 @@ export function Gameboard() {
     return false;
   }
 
-  return { placeShips, receiveAttack, checkAllShipIsSunk };
+  return { placeShips, receiveAttack, checkAllShipIsSunk, getAllShipCoordinates };
 }
 
 export function checkIfHit(ship, atk) {
@@ -71,7 +89,7 @@ export function checkIfHit(ship, atk) {
   } else return 0;
 }
 
-function Player(name, type) {
+export function Player(name, type) {
   const gameboard = Gameboard();
   return { name, type, gameboard };
 }

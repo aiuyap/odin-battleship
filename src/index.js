@@ -1,5 +1,12 @@
 import "./styles.css";
-import { generateCells } from "./loadField";
+import { generateCells, showShips } from "./loadField";
+import { Player } from "./factories";
 
-generateCells(".player-field");
-generateCells(".computer-field");
+(function main() {
+  const userPlayer = Player();
+  userPlayer.gameboard.placeShips();
+
+  generateCells(".player-field");
+  generateCells(".computer-field");
+  showShips(userPlayer.gameboard.getAllShipCoordinates());
+})();
