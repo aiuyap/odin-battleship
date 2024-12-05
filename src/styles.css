@@ -14,3 +14,25 @@ body {
   align-items: center;
   height: 5rem;
 }
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  height: 90vh;
+}
+
+.field-container {
+  height: 500px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  outline: 5px solid black;
+}
+
+.cell {
+  outline: black solid;
+  height: 50px;
+  width: 50px;
+}
