@@ -27,7 +27,6 @@ function Ship(length) {
 export function Gameboard() {
   const missedAtk = [];
   const hitAtk = [];
-  let allShipsSunk = false;
 
   const carrier = Ship(5);
   const battleship = Ship(4);
@@ -55,7 +54,14 @@ export function Gameboard() {
     }
   }
 
-  return { placeShips, receiveAttack };
+  function checkAllShipIsSunk() {
+    if (carrier.isSunk() && battleship.isSunk() && cruiser.isSunk() && submarine.isSunk() && destroyer.isSunk) {
+      return true;
+    }
+    return false;
+  }
+
+  return { placeShips, receiveAttack, checkAllShipIsSunk };
 }
 
 export function checkIfHit(ship, atk) {
