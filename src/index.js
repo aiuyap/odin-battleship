@@ -12,5 +12,5 @@ import { Player } from "./factories";
   generateCells(".player-field", "human");
   generateCells(".computer-field", "computer");
   showShips(userPlayer.gameboard.getAllShipCoordinates(), "human");
-  loadListeners(computerPlayer.gameboard);
+  loadListeners(userPlayer.gameboard, computerPlayer.gameboard);
 })();

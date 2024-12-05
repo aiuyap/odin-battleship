@@ -85,7 +85,11 @@ export function Gameboard() {
     return false;
   }
 
-  return { placeShips, receiveAttack, checkAllShipIsSunk, getAllShipCoordinates };
+  function getAtksMade() {
+    return missedAtk.concat(hitAtk);
+  }
+
+  return { placeShips, receiveAttack, checkAllShipIsSunk, getAllShipCoordinates, getAtksMade };
 }
 
 export function checkIfHit(ship, atk) {

@@ -1,3 +1,5 @@
+import { computerAtk } from "./computer";
+
 export function generateCells(idName, player) {
   const container = document.querySelector(idName);
   const cell = document.createElement("div");
@@ -28,16 +30,18 @@ export function showShips(coordinates, player) {
   });
 }
 
-export function loadListeners(gameboard) {
+export function loadListeners(playerGB, computerGB) {
   const allCells = document.querySelectorAll(".computer");
   allCells.forEach((cell) => {
     cell.addEventListener("click", () => {
-      const hit = gameboard.receiveAttack(cell.textContent);
+      const hit = computerGB.receiveAttack(cell.textContent);
       if (hit === true) {
         cell.classList.add("hit");
       } else {
         cell.classList.add("miss");
       }
+
+      computerAtk(playerGB);
     });
   });
 }
