@@ -1,4 +1,4 @@
-import { Gameboard } from "./factories";
+import { Gameboard } from "../src/factories";
 
 const game = Gameboard();
 game.placeShips();
