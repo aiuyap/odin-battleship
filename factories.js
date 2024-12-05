@@ -70,3 +70,8 @@ export function checkIfHit(ship, atk) {
     return 1;
   } else return 0;
 }
+
+function Player(name, type) {
+  const gameboard = Gameboard();
+  return { name, type, gameboard };
+}
