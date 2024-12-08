@@ -1,6 +1,7 @@
 :root {
   --bg-color: #151515;
-  --sonar: #238816;
+  --ocean: #005477;
+  --fire-red: #a9423f;
 }
 
 * {
@@ -34,11 +35,11 @@ body {
   width: 500px;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  outline: 5px solid gray;
+  outline: 5px solid var(--ocean);
 }
 
 .cell {
-  border: 1px gray solid;
+  border: 1px solid var(--ocean);
   height: 50px;
   width: 50px;
   cursor: pointer;
@@ -49,16 +50,17 @@ body {
 }
 
 .ship {
-  background-color: whitesmoke;
+  background-color: #848482;
+  border: none;
 }
 
 .hit {
   height: 25px;
   width: 25px;
-  background-color: #ff0000;
+  background-color: var(--fire-red);
   border-radius: 50%;
 }
 
 .miss {
-  background-color: blue;
+  background-color: var(--ocean);
 }
