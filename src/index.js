@@ -18,10 +18,20 @@ import { Player } from "./factories";
 export function checkWinner(gb1, gb2) {
   const player1 = gb1.checkAllShipIsSunk();
   const player2 = gb2.checkAllShipIsSunk();
+  const dialog = document.querySelector("#winner");
+  const winnerText = document.querySelector("#win-msg");
 
   if (player1) {
-    alert(`Computer won!`);
+    dialog.showModal();
+    winnerText.textContent = "Better luck next time, captain. The enemy won!";
   } else if (player2) {
-    alert(`You won!`);
+    dialog.showModal();
+    winnerText.textContent = "Congratulations captain, you won!";
   }
 }
+
+(function newGameListener() {
+  document.querySelector("#new-game").addEventListener("click", () => {
+    document.querySelector("#winner").close();
+  });
+})();

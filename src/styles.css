@@ -64,3 +64,44 @@ body {
 .miss {
   background-color: var(--ocean);
 }
+
+dialog {
+  justify-self: center;
+  width: 500px;
+  height: 300px;
+  top: 20%;
+  background-color: var(--ocean);
+  gap: 2rem;
+  border: none;
+  border-radius: 1rem;
+  padding: 3.5rem;
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.384);
+}
+
+dialog button {
+  background-color: var(--fire-red);
+  border: none;
+  width: 8rem;
+  height: 5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+dialog button:hover {
+  background-color: #cf5f5b;
+}
+
+dialog > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
