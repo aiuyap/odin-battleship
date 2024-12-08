@@ -95,7 +95,8 @@ dialog button {
   outline: none;
 }
 
-dialog button:hover {
+dialog button:hover,
+#start-btn:hover {
   background-color: #cf5f5b;
 }
 
