@@ -20,6 +20,7 @@ export function checkWinner(gb1, gb2) {
   const player2 = gb2.checkAllShipIsSunk();
   const dialog = document.querySelector("#winner");
   const winnerText = document.querySelector("#win-msg");
+  dialog.CloseDialogOnEsc = false;
 
   if (player1) {
     dialog.showModal();
@@ -33,5 +34,11 @@ export function checkWinner(gb1, gb2) {
 (function newGameListener() {
   document.querySelector("#new-game").addEventListener("click", () => {
     document.querySelector("#winner").close();
+  });
+  //prevent closing modal with escape btn
+  document.querySelector("#winner").addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+    }
   });
 })();
