@@ -97,4 +97,8 @@ function btnListeners(userPlayer, computerPlayer) {
     loadListeners(userPlayer.gameboard, computerPlayer.gameboard);
     document.querySelector("#button-container").remove();
   });
+  //new game btn listener
+  document.querySelector("#new-game").addEventListener("click", () => {
+    window.location.reload();
+  });
 }

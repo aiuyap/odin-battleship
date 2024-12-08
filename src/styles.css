@@ -131,6 +131,10 @@ dialog > div {
   margin-top: 1rem;
 }
 
+#change-placement:hover {
+  background-color: #1891c5;
+}
+
 #start-btn {
   background-color: var(--fire-red);
 }
