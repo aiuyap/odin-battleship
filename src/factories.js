@@ -35,27 +35,12 @@ export function Gameboard() {
   const destroyer = Ship(2);
 
   function placeShips() {
-    carrier.setCoordinates("1,1");
-    carrier.setCoordinates("1,2");
-    carrier.setCoordinates("1,3");
-    carrier.setCoordinates("1,4");
-    carrier.setCoordinates("1,5");
-
-    destroyer.setCoordinates("4,3");
-    destroyer.setCoordinates("4,4");
-
-    cruiser.setCoordinates("6,7");
-    cruiser.setCoordinates("7,7");
-    cruiser.setCoordinates("8,7");
-
-    battleship.setCoordinates("9,1");
-    battleship.setCoordinates("9,2");
-    battleship.setCoordinates("9,3");
-    battleship.setCoordinates("9,4");
-
-    submarine.setCoordinates("0,8");
-    submarine.setCoordinates("1,8");
-    submarine.setCoordinates("2,8");
+    const takenCoordinates = [];
+    randomCoordinates(carrier, 5, takenCoordinates);
+    randomCoordinates(battleship, 4, takenCoordinates);
+    randomCoordinates(cruiser, 3, takenCoordinates);
+    randomCoordinates(submarine, 3, takenCoordinates);
+    randomCoordinates(destroyer, 2, takenCoordinates);
   }
 
   function receiveAttack(atk) {
@@ -111,4 +96,57 @@ export function checkIfHit(ship, atk) {
 export function Player(name, type) {
   const gameboard = Gameboard();
   return { name, type, gameboard };
+}
+
+function randomCoordinates(ship, length, takenCrdnts) {
+  let x = Math.floor(Math.random() * 10);
+  let y = Math.floor(Math.random() * 10);
+  //randomly decides if ship extends horizontally or vertically
+  let orientation = Math.floor(Math.random() * 2);
+
+  while (!testIfValid(x, y, orientation, takenCrdnts, length)) {
+    //checks if coordinates are valid else generates a new one
+    x = Math.floor(Math.random() * 10);
+    y = Math.floor(Math.random() * 10);
+    orientation = Math.floor(Math.random() * 2);
+  }
+
+  if (orientation === 0) {
+    for (let i = 0; i < length; i++) {
+      ship.setCoordinates(`${x},${y}`);
+      takenCrdnts.push(`${x},${y}`);
+      y++;
+    }
+  } else {
+    for (let i = 0; i < length; i++) {
+      ship.setCoordinates(`${x},${y}`);
+      takenCrdnts.push(`${x},${y}`);
+      x++;
+    }
+  }
+}
+
+function testIfValid(x, y, orientation, takenCrdnts, length) {
+  if (orientation === 0) {
+    if (y + length > 9) {
+      return false;
+    }
+    for (let i = 0; i < length; i++) {
+      if (takenCrdnts.includes(`${x},${y}`)) {
+        return false;
+      }
+      y++;
+    }
+  } else {
+    if (x + length > 9) {
+      return false;
+    }
+    for (let i = 0; i < length; i++) {
+      if (takenCrdnts.includes(`${x},${y}`)) {
+        return false;
+      }
+      x++;
+    }
+  }
+  return true;
 }
