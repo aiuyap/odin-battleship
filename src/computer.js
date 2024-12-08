@@ -18,10 +18,13 @@ function randomAtk() {
 
 function getCell(atk, hit) {
   const allCells = document.querySelectorAll(".human");
+  const div = document.createElement("div");
   allCells.forEach((cell) => {
     if (cell.textContent === atk) {
       if (hit === true) {
-        cell.classList.add("hit");
+        const hitDiv = div.cloneNode();
+        cell.appendChild(hitDiv);
+        hitDiv.classList.add("hit");
       } else {
         cell.classList.add("miss");
       }

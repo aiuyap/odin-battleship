@@ -33,12 +33,15 @@ export function showShips(coordinates, player) {
 
 export function loadListeners(playerGB, computerGB) {
   const allCells = document.querySelectorAll(".computer");
+  const div = document.createElement("div");
   allCells.forEach((cell) => {
     cell.addEventListener("click", () => {
       if (!computerGB.getAtksMade().includes(cell.textContent)) {
         const hit = computerGB.receiveAttack(cell.textContent);
         if (hit === true) {
-          cell.classList.add("hit");
+          const hitDiv = div.cloneNode();
+          cell.appendChild(hitDiv);
+          hitDiv.classList.add("hit");
         } else {
           cell.classList.add("miss");
         }
