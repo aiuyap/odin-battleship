@@ -2,7 +2,7 @@ import "./styles.css";
 import { generateCells, showShips, loadListeners } from "./loadField";
 import { Player } from "./factories";
 
-(function main() {
+(function driver() {
   const userPlayer = Player("Aiu", "human");
   const computerPlayer = Player("computer", "computer");
 

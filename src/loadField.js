@@ -40,8 +40,20 @@ export function loadListeners(playerGB, computerGB) {
       } else {
         cell.classList.add("miss");
       }
-
+      checkWinner(playerGB, computerGB);
       computerAtk(playerGB);
+      checkWinner(playerGB, computerGB);
     });
   });
+}
+
+function checkWinner(gb1, gb2) {
+  const player1 = gb1.checkAllShipIsSunk();
+  const player2 = gb2.checkAllShipIsSunk();
+
+  if (player1) {
+    alert(`Computer won!`);
+  } else if (player2) {
+    alert(`You won!`);
+  }
 }

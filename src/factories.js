@@ -47,6 +47,15 @@ export function Gameboard() {
     cruiser.setCoordinates("6,7");
     cruiser.setCoordinates("7,7");
     cruiser.setCoordinates("8,7");
+
+    battleship.setCoordinates("9,1");
+    battleship.setCoordinates("9,2");
+    battleship.setCoordinates("9,3");
+    battleship.setCoordinates("9,4");
+
+    submarine.setCoordinates("0,8");
+    submarine.setCoordinates("1,8");
+    submarine.setCoordinates("2,8");
   }
 
   function receiveAttack(atk) {
