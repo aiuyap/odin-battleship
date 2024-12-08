@@ -7,11 +7,21 @@
   </head>
   <body>
     <div id="title">
+      <img src="./images/battleship-logo.svg" alt="Battleship Logo" id="logo-img" />
       <h1>battleship</h1>
     </div>
     <div id="container">
-      <div class="player-field field-container"></div>
-      <div class="computer-field field-container"></div>
+      <div>
+        <h1>Your fleet</h1>
+        <div class="player-field field-container"></div>
+        <div id="button-container">
+          <button type="button" id="change-placement">Change Placement</button> <button type="button" id="start-btn">Start Game</button>
+        </div>
+      </div>
+      <!-- <div>
+        <h1>Enemy fleet</h1>
+        <div class="computer-field field-container"></div>
+      </div> -->
     </div>
     <dialog id="winner">
       <div>

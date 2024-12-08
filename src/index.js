@@ -3,16 +3,18 @@ import { generateCells, showShips, loadListeners } from "./loadField";
 import { Player } from "./factories";
 
 (function driver() {
-  const userPlayer = Player("Aiu", "human");
+  const userPlayer = Player("player", "human");
   const computerPlayer = Player("computer", "computer");
 
   userPlayer.gameboard.placeShips();
   computerPlayer.gameboard.placeShips();
 
-  generateCells(".player-field", "human");
-  generateCells(".computer-field", "computer");
+  btnListeners(userPlayer);
+
+  generateCells(".player-field", userPlayer.type);
+  // generateCells(".computer-field", "computer");
   showShips(userPlayer.gameboard.getAllShipCoordinates(), "human");
-  loadListeners(userPlayer.gameboard, computerPlayer.gameboard);
+  // loadListeners(userPlayer.gameboard, computerPlayer.gameboard);
 })();
 
 export function checkWinner(gb1, gb2) {
@@ -31,7 +33,7 @@ export function checkWinner(gb1, gb2) {
   }
 }
 
-(function newGameListener() {
+function btnListeners(userPlayer) {
   document.querySelector("#new-game").addEventListener("click", () => {
     document.querySelector("#winner").close();
   });
@@ -41,4 +43,15 @@ export function checkWinner(gb1, gb2) {
       event.preventDefault();
     }
   });
-})();
+
+  document.querySelector("#change-placement").addEventListener("click", () => {
+    userPlayer = Player("player", "human");
+    const allCells = document.querySelectorAll(".human");
+    allCells.forEach((cell) => {
+      cell.remove();
+    });
+    generateCells(".player-field", userPlayer.type);
+    userPlayer.gameboard.placeShips();
+    showShips(userPlayer.gameboard.getAllShipCoordinates(), "human");
+  });
+}
