@@ -32,6 +32,7 @@ body {
   align-items: center;
   gap: 5rem;
   height: 80vh;
+  flex-wrap: wrap;
 }
 
 .field-container {
