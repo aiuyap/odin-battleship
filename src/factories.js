@@ -83,7 +83,11 @@ export function Gameboard() {
     return missedAtk.concat(hitAtk);
   }
 
-  return { placeShips, receiveAttack, checkAllShipIsSunk, getAllShipCoordinates, getAtksMade };
+  function getLastHit() {
+    return hitAtk[hitAtk.length - 1];
+  }
+
+  return { placeShips, receiveAttack, checkAllShipIsSunk, getAllShipCoordinates, getAtksMade, getLastHit };
 }
 
 export function checkIfHit(ship, atk) {
