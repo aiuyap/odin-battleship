@@ -2,6 +2,8 @@
 
 The Odin Project - JavaScript Course - Project: Battleship
 
+- Live Preview: https://aiuyap.github.io/odin-battleship/
+
 ## Things I learned while doing this project:
 
 - Practiced basic tests using Jest
