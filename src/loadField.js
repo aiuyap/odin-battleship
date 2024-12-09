@@ -60,9 +60,17 @@ export function loadListeners(playerGB, computerGB) {
 function disableClicks() {
   const field = document.querySelector(".computer-field");
   field.style.pointerEvents = "none";
+  //switches the underline to the current board's turn to be attacked
+  const title = document.querySelector("#your-fleet");
+  title.classList.add("current-attack");
+  document.querySelector("#enemy-fleet").classList.remove("current-attack");
 }
 
 function enableClicks() {
   const field = document.querySelector(".computer-field");
   field.style.pointerEvents = "auto";
+  //switches the underline to the current board's turn to be attacked
+  const title = document.querySelector("#enemy-fleet");
+  title.classList.add("current-attack");
+  document.querySelector("#your-fleet").classList.remove("current-attack");
 }

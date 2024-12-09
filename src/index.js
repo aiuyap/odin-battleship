@@ -61,6 +61,7 @@ function generateEnemyContainer() {
 
   h1.textContent = "Enemy Fleet";
   h1.id = "enemy-fleet";
+  h1.classList.add("current-attack");
   container.appendChild(div);
   div.appendChild(h1);
 
