@@ -60,6 +60,7 @@ function generateEnemyContainer() {
   const cellContainer = div.cloneNode();
 
   h1.textContent = "Enemy Fleet";
+  h1.id = "enemy-fleet";
   container.appendChild(div);
   div.appendChild(h1);
 

@@ -46,9 +46,23 @@ export function loadListeners(playerGB, computerGB) {
           cell.classList.add("miss");
         }
         checkWinner(playerGB, computerGB);
-        computerAtk(playerGB);
+        disableClicks();
+        setTimeout(() => {
+          computerAtk(playerGB);
+          enableClicks();
+        }, 1000);
         checkWinner(playerGB, computerGB);
       }
     });
   });
+}
+
+function disableClicks() {
+  const field = document.querySelector(".computer-field");
+  field.style.pointerEvents = "none";
+}
+
+function enableClicks() {
+  const field = document.querySelector(".computer-field");
+  field.style.pointerEvents = "auto";
 }
