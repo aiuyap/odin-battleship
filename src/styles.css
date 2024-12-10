@@ -99,6 +99,8 @@ dialog button {
 dialog button:hover,
 #start-btn:hover {
   background-color: #cf5f5b;
+  transform: translateY(-10%);
+  transition: transform 0.5s ease-in-out;
 }
 
 dialog > div {
@@ -134,6 +136,8 @@ dialog > div {
 
 #change-placement:hover {
   background-color: #1891c5;
+  transform: translateY(-10%);
+  transition: transform 0.5s ease-in-out;
 }
 
 #start-btn {
