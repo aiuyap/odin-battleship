@@ -13,6 +13,7 @@ The Odin Project - JavaScript Course - Project: Battleship
 - Closures
 - Utilizing Webpack (developed using dev server and bundled with webpack)
 - ESLint and Prettier (installed on my VSCode)
+- Responsive Design
 - many more that I may have overlooked :D
 
 ## Features:
