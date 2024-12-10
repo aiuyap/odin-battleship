@@ -22,8 +22,11 @@ body {
   justify-content: center;
   align-items: center;
   height: 5rem;
-  font-size: 2rem;
-  margin-top: 1rem;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  margin: 2rem 0;
+  padding: 0 2rem;
+  flex: 0 1 auto;
+  max-width: 100%;
 }
 
 #container {
@@ -31,22 +34,27 @@ body {
   justify-content: center;
   align-items: center;
   gap: 5rem;
-  height: 80vh;
   flex-wrap: wrap;
+  padding: 2rem;
 }
 
 .field-container {
-  height: 500px;
-  width: 500px;
+  height: auto;
+  max-width: 500px;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(10, minmax(10px, 50px));
+  grid-template-rows: repeat(10, minmax(10px, 50px));
   outline: 5px solid var(--ocean);
+  flex: 1 1 0;
+  aspect-ratio: 1;
 }
 
 .cell {
   border: 1px solid var(--ocean);
-  height: 50px;
-  width: 50px;
+  min-height: 10px;
+  max-height: 50px;
+  min-width: 10px;
+  max-width: 50px;
   cursor: pointer;
   font-size: 0;
   display: flex;
